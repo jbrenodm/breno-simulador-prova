@@ -26,27 +26,27 @@ Antes de começar, você precisará ter o Python instalado. Como este projeto fo
 ### Instalar dependências do sistema para o PyMuPDF
 sudo apt update
 sudo apt install python3-pip python3-venv
-🔧 Instalação e Execução
-```
+``` 
+## 🔧 Instalação e Execução
 
-###Clone o repositório:
-```Bash
+### Clone o repositório:
+```bash
 git clone [https://github.com/SEU_USUARIO/breno-exam-simulator.git](https://github.com/SEU_USUARIO/breno-exam-simulator.git)
 cd breno-exam-simulator
 ```
 
 ###Crie e ative o ambiente virtual:
-```Bash
+```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
 ###Instale as dependências:
-```Bash
+```bash
 pip install -r requirements.txt
 ```
 
 ###Execute a aplicação:
-```Bash
+```bash
 streamlit run app.py
 ```
