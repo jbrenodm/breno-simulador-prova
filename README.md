@@ -35,18 +35,18 @@ git clone [https://github.com/SEU_USUARIO/breno-exam-simulator.git](https://gith
 cd breno-exam-simulator
 ```
 
-###Crie e ative o ambiente virtual:
+### Crie e ative o ambiente virtual:
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-###Instale as dependências:
+### Instale as dependências:
 ```bash
 pip install -r requirements.txt
 ```
 
-###Execute a aplicação:
+### Execute a aplicação:
 ```bash
 streamlit run app.py
 ```
