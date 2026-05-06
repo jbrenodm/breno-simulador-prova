@@ -31,7 +31,7 @@ sudo apt install python3-pip python3-venv
 
 ### Clone o repositório:
 ```bash
-git clone [https://github.com/SEU_USUARIO/breno-exam-simulator.git](https://github.com/SEU_USUARIO/breno-exam-simulator.git)
+git clone https://github.com/jbrenodm/breno-simulador-prova.git
 cd breno-exam-simulator
 ```
 
