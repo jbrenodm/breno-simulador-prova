@@ -37,10 +37,12 @@ class ExamParser:
                     correct = line.replace("Answer:", "").replace(" ", "").strip() 
                 elif line.startswith(("Explanation", "Key takeaway")):
                     state = "explicacao"
-                    expl = line
+                    # Remove a palavra-chave da linha atual para não duplicar
+                    expl = re.sub(r'^(Explanation|Key takeaway):?\s*', '', line, flags=re.IGNORECASE)
                 elif state == "enunciado":
                     enunciado_parts.append(re.sub(r'^-?\s*\[.*?\]', '', line).strip())
                 elif state == "explicacao":
+                    # Apenas concatena o conteúdo adicional sem repetir o prefixo
                     expl += " " + line
             
             if enunciado_parts and alts:
