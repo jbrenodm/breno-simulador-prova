@@ -33,14 +33,26 @@ class ExamApp:
             if exames:
                 escolha = st.selectbox("Selecione um simulado:", [""] + exames)
                 if escolha:
-                    # Botão de Início
                     dados = self.repo.load_exam(escolha)
-                    qtd = st.slider("Quantidade de questões:", 1, len(dados), min(len(dados), 10))
-                    if st.button("🚀 Iniciar Simulado", use_container_width=True):
-                        st.session_state.questoes = random.sample(dados, qtd)
-                        st.session_state.idx = 0
-                        st.session_state.respostas = {}
-                        st.rerun()
+                    
+                    # Verificação de segurança para simulados vazios
+                    if not dados:
+                        st.warning("⚠️ Este simulado não possui questões. Tente reimportar o arquivo.")
+                    else:
+                        # O slider só aparece se houver questões (max_value >= 1)
+                        qtd = st.slider(
+                            "Quantidade de questões:", 
+                            min_value=1, 
+                            max_value=len(dados), 
+                            value=min(len(dados), 10)
+                        )
+                        
+                        if st.button("🚀 Iniciar Simulado", use_container_width=True):
+                            st.session_state.questoes = random.sample(dados, qtd)
+                            st.session_state.idx = 0
+                            st.session_state.respostas = {}
+                            st.session_state.finalizado = False
+                            st.rerun()
                     
                     st.divider()
                     
